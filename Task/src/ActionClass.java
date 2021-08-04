@@ -14,11 +14,12 @@ public class ActionClass {
             listX.add(Integer.parseInt(res[i]));
             listY.add(Integer.parseInt(res[i+1]));
         }
+        System.out.println("Введите команду: ");
     }
     protected void printCommand(){
         int count = 0;
             if(group1.size() == 0){
-                System.out.println("Группа пуста");
+                System.out.print("Группа 1 пуста");
 
             }
             else{
@@ -26,8 +27,9 @@ public class ActionClass {
                     System.out.print(group1.get(i) + " "+ group1.get(i+1) + " ");
                 }
             }
+        System.out.println();
         if(group2.size() == 0){
-            System.out.println("Группа пуста");
+            System.out.print("Группа 2 пуста");
 
         }
         else{
@@ -35,9 +37,9 @@ public class ActionClass {
                 System.out.print(group2.get(i) + " "+ group2.get(i+1) + " ");
             }
         }
+        System.out.println();
         if(group3.size() == 0){
-            System.out.println("Группа пуста");
-
+            System.out.print("Группа 3 пуста");
         }
         else{
             for(int i= 0; i < group3.size(); i+=2){
@@ -47,8 +49,49 @@ public class ActionClass {
         if(count > 0){
             System.out.println("Точек не вошедших ни в одну группу: " + count);
         }
+        System.out.println();
+        System.out.println("Введите команду: ");
     }
-    protected void printWithParamCommand(int first, int second){
+    protected void printWithParamCommand(int param0, int param1){
+        List<Integer> printGroup;
+        switch (param0){
+            case (1):
+                printGroup = new ArrayList<>(group1);
+                for(int i= 0; i < printGroup.size(); i+=2){
+                    System.out.print(printGroup.get(i) + " "+ printGroup.get(i+1) + " ");
+                }
+            case (2):
+                printGroup = new ArrayList<>(group2);
+                for(int i= 0; i < printGroup.size(); i+=2){
+                    System.out.print(printGroup.get(i) + " "+ printGroup.get(i+1) + " ");
+                }
+            case (3):
+                printGroup = new ArrayList<>(group3);
+                for(int i= 0; i < printGroup.size(); i+=2){
+                    System.out.print(printGroup.get(i) + " "+ printGroup.get(i+1) + " ");
+                }
+        }
+        System.out.println();
+        switch (param1){
+            case (1):
+                printGroup = new ArrayList<>(group1);
+                for(int i= 0; i < printGroup.size(); i+=2){
+                    System.out.print(printGroup.get(i) + " "+ printGroup.get(i+1) + " ");
+                }
+            case (2):
+                printGroup = new ArrayList<>(group2);
+                for(int i= 0; i < printGroup.size(); i+=2){
+                    System.out.print(printGroup.get(i) + " "+ printGroup.get(i+1) + " ");
+                }
+            case (3):
+                printGroup = new ArrayList<>(group3);
+                for(int i= 0; i < printGroup.size(); i+=2){
+                    System.out.print(printGroup.get(i) + " "+ printGroup.get(i+1) + " ");
+                }
+            case (0):
+                break;
+        }
+
 
     }
     protected void removeCommand(int first, int second){
@@ -76,6 +119,8 @@ public class ActionClass {
     protected void clearCommand(){
         listX.clear();
         listY.clear();
+        System.out.println("Введите команду: ");
+
     }
     protected void helpCommand(){
         System.out.println("add <point>        - добавить в память программы точки, координаты передаются парами чисел через пробел\n" +
@@ -86,5 +131,6 @@ public class ActionClass {
                 "help               - вывод справки по командам\n"+
                 "exit               - выход из программы"
         );
+        System.out.println("Введите команду: ");
     }
 }
