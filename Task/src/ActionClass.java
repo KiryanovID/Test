@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ActionClass {
-    List<Integer> listX = new ArrayList<>();
-    List<Integer> listY = new ArrayList<>();
-    List<Integer> group1 = new ArrayList<>();
-    List<Integer> group2 = new ArrayList<>();
-    List<Integer> group3 = new ArrayList<>();
-    int count;
+    protected List<Integer> listX = new ArrayList<>();
+    protected List<Integer> listY = new ArrayList<>();
+    private final List<Integer> group1 = new ArrayList<>();
+    private final List<Integer> group2 = new ArrayList<>();
+    private final List<Integer> group3 = new ArrayList<>();
+    private int count;
 
     protected void addCommand(String[] res){
         for(int i = 1; i < res.length; i +=2) {
@@ -17,7 +17,6 @@ public class ActionClass {
         System.out.println("Введите команду: ");
     }
     protected void printCommand(){
-        int count = 0;
             if(group1.size() == 0){
                 System.out.print("Группа 1 пуста");
 
@@ -49,8 +48,8 @@ public class ActionClass {
         if(count > 0){
             System.out.println("Точек не вошедших ни в одну группу: " + count);
         }
-        System.out.println();
-        System.out.println("Введите команду: ");
+
+        System.out.println("\nВведите команду: ");
     }
     protected void printWithParamCommand(int param0, int param1){
         List<Integer> printGroup;
@@ -91,7 +90,7 @@ public class ActionClass {
                 System.out.print(printGroup.get(i) + " "+ printGroup.get(i+1) + " ");
             }
         }
-        System.out.println();
+        System.out.println("\nВведите команду: ");
     }
     protected void removeCommand(int param0, int param1){
 
@@ -114,7 +113,8 @@ public class ActionClass {
         else if (param1 == 3){
             group3.clear();
         }
-        System.out.println();
+        System.out.println("Введите команду: ");
+
     }
     protected void calculate(){
         for(int i = 0; i < listX.size(); i++){
@@ -136,8 +136,9 @@ public class ActionClass {
         }
     }
     protected void clearCommand(){
-        listX.clear();
-        listY.clear();
+        group1.clear();
+        group2.clear();
+        group3.clear();
         System.out.println("Введите команду: ");
 
     }
